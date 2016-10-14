@@ -1,0 +1,37 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "Front-End boilerplate project with typescript and nodejs. — Edit",
+  "main": "/app/app.module.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karanba/boilerplate.git"
+  },
+  "keywords": [
+    "frontend",
+    "boilerplate",
+    "nodejs",
+    "angular",
+    "typescript"
+  ],
+  "author": "altaykarakus@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karanba/boilerplate/issues"
+  },
+  "homepage": "https://github.com/karanba/boilerplate#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1"
+  }
+}
