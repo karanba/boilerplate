@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script type="text/javascript" src="app/bundle.js"></script>
-    </head>
-    <body ng-app="app">
-        <h1>Boilerplate Ultimate</h1>
-        <div ng-controller="main as vm">
-            {{ main.name }}
+
+<head>
+    <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
+    <script type="text/javascript" src="app/bundle.js"></script>
+</head>
+
+<body ng-app="app" ng-cloak>
+    <md-content class="md-padding" ng-controller="home as vm">
+        <md-nav-bar md-selected-nav-item="vm.currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-click="goto('page1')" name="page1">Home</md-nav-item>
+            <md-nav-item md-nav-click="goto('page2')" name="page2">About</md-nav-item>
+            <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
+                  <md-nav-item md-nav-sref="app.page4" name="page4">Page Four</md-nav-item>
+                  <md-nav-item md-nav-href="#page5" name="page5">Page Five</md-nav-item>
+            -->
+        </md-nav-bar>
+        <div class="ext-content md-padding">
+            External content for `<span>{{vm.currentNavItem}}</span>`
         </div>
-        <ng-view></ng-view>
-    </body>
+    </md-content>
+    <ng-view></ng-view>
+</body>
+
 </html>
