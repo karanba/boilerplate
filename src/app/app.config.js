@@ -1,16 +1,23 @@
 var angular = require("angular");
-var angularRoute = require("angular-route");
+require("angular-route");
 
 angular
     .module('app')
     .config(config);
-    
+
 function config($routeProvider, $provide) {
     $routeProvider
-        .when('/', {
-            templateUrl: 'app/about.html',
+        .when('/home', {
+            templateUrl: 'app/navigation/home/home.controller.html',
+            controller: 'home',
+            controllerAs: 'vm'
+        })
+        .when('/about', {
+            templateUrl: 'app/navigation/about/about.controller.html',
             controller: 'about',
             controllerAs: 'vm'
+        }).otherwise({
+            redirect: '/home'
         });
 
     $provide.decorator('$log', [

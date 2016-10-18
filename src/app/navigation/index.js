@@ -1,4 +1,6 @@
 'use strict';
+ var angular = require("angular");
  
-require('./about.controller');
-require('./home.comtroller');
+angular.module('app')
+    .controller('home', require('./home/home.controller'))
+    .controller('about', require('./about/about.controller'));

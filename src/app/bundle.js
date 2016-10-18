@@ -70369,18 +70369,25 @@ module.exports = angular;
 
 },{"./angular":9}],11:[function(require,module,exports){
 var angular = require("angular");
-var angularRoute = require("angular-route");
+require("angular-route");
 
 angular
     .module('app')
     .config(config);
-    
+
 function config($routeProvider, $provide) {
     $routeProvider
-        .when('/', {
-            templateUrl: 'app/about.html',
+        .when('/home', {
+            templateUrl: 'app/navigation/home/home.controller.html',
+            controller: 'home',
+            controllerAs: 'vm'
+        })
+        .when('/about', {
+            templateUrl: 'app/navigation/about/about.controller.html',
             controller: 'about',
             controllerAs: 'vm'
+        }).otherwise({
+            redirect: '/home'
         });
 
     $provide.decorator('$log', [
@@ -70403,8 +70410,7 @@ require("angular-route");
 require("angular-material");
 
 angular.module('app', ['ngRoute', 'ngMaterial']);
-
-
+    
 require('./app.config');
 require('./services');
 require('./components');
@@ -70418,47 +70424,44 @@ var angular = require("angular");
 
 angular.module('shared.widgets', []);
 },{"angular":10}],15:[function(require,module,exports){
-var angular = require("angular");
-
-angular
-    .module('app')
-    .controller('about', AboutController);
-    
-    
-AboutController.$inject = ['$scope', '$log'];
-function AboutController($scope, $log) {
-    /* jshint validthis: true */
-    var vm = this;
-    
-    vm.message = "Thanks";
-}
-},{"angular":10}],16:[function(require,module,exports){
-var angular = require("angular");
-
-angular
-    .module('app')
-    .controller('home', HomeController);
-
-HomeController.$inject = ['$scope', '$log', 'exampleService'];
-
-function HomeController($scope, $log, exampleService) {
-    /* jshint validthis: true */
-    var vm = this;
-    vm.currentNavItem = 'page1';
-    activate();
-
-    function activate() {
-        return exampleService.getData().then(function(data) {
-            vm.data = data;
-        });
-    }
-}
-},{"angular":10}],17:[function(require,module,exports){
 'use strict';
+
+module.exports = ['$scope', '$log',
+    function($scope, $log) {
+        /* jshint validthis: true */
+        var vm = this;
+
+        vm.message = "Thanksa";
+    }
+];
+
+},{}],16:[function(require,module,exports){
+'use strict';
+
+module.exports = ['$scope', '$log', 'exampleService',
+    function($scope, $log, exampleService) {
+        /* jshint validthis: true */
+        var vm = this;
+        vm.currentNavItem = 'page1';
+        activate();
+        $log.warn("warn");
+
+        function activate() {
+            return exampleService.getData().then(function(data) {
+                vm.data = data;
+            });
+        }
+    }
+];
+
+},{}],17:[function(require,module,exports){
+'use strict';
+ var angular = require("angular");
  
-require('./about.controller');
-require('./home.comtroller');
-},{"./about.controller":15,"./home.comtroller":16}],18:[function(require,module,exports){
+angular.module('app')
+    .controller('home', require('./home/home.controller'))
+    .controller('about', require('./about/about.controller'));
+},{"./about/about.controller":15,"./home/home.controller":16,"angular":10}],18:[function(require,module,exports){
 var angular = require("angular");
 
 angular

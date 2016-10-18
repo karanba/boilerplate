@@ -7,19 +7,11 @@
 </head>
 
 <body ng-app="app" ng-cloak>
-    <md-content class="md-padding" ng-controller="home as vm">
-        <md-nav-bar md-selected-nav-item="vm.currentNavItem" nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-click="goto('page1')" name="page1">Home</md-nav-item>
-            <md-nav-item md-nav-click="goto('page2')" name="page2">About</md-nav-item>
-            <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
-                  <md-nav-item md-nav-sref="app.page4" name="page4">Page Four</md-nav-item>
-                  <md-nav-item md-nav-href="#page5" name="page5">Page Five</md-nav-item>
-            -->
-        </md-nav-bar>
-        <div class="ext-content md-padding">
-            External content for `<span>{{vm.currentNavItem}}</span>`
-        </div>
-    </md-content>
+   <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button ng-href="#home" class="md-primary" >Home</md-button>
+        <md-button ng-href="#about" class="md-primary">About</md-button>
+    </section>
+    
     <ng-view></ng-view>
 </body>
 
