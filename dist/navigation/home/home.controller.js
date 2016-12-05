@@ -1,0 +1,1 @@
+"use strict";module.exports=["$scope","$log","exampleService",function(e,t,n){function a(){return n.getData().then(function(e){r.data=e})}var r=this;r.currentNavItem="page1",a(),t.warn("warn")}];

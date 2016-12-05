@@ -1,0 +1,1 @@
+"use strict";module.exports=["$scope","$log",function(s,e){var o=this;o.message="Thanksa"}];
